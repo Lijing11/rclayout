@@ -31,11 +31,14 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import com.gcssloop.widget.RCImageView;
+import com.gcssloop.widget.RCLinearLayout;
 import com.gcssloop.widget.RCRelativeLayout;
+import com.gcssloop.widget.RCTextView;
 import com.gcssloop.widget.helper.RCHelper;
 
 public class ExampleActivity extends AppCompatActivity {
-    RCRelativeLayout layout;
+    RCLinearLayout layout;
     CheckBox cb_clip_background;
     CheckBox cb_circle;
     CheckBox cb_background;
@@ -50,7 +53,7 @@ public class ExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
-        layout = (RCRelativeLayout) findViewById(R.id.rc_layout);
+        layout = (RCLinearLayout) findViewById(R.id.rc_layout);
         cb_circle = (CheckBox) findViewById(R.id.cb_circle);
         cb_background = (CheckBox) findViewById(R.id.cb_background);
         cb_clip_background = (CheckBox) findViewById(R.id.cb_clip_background);
@@ -63,28 +66,18 @@ public class ExampleActivity extends AppCompatActivity {
         //checked状态
         toast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 
-        layout.setOnCheckedChangeListener(new RCHelper.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(View v, boolean isChecked) {
-                toast.setText("checked = " + isChecked);
-                toast.show();
-            }
-        });
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                layout.toggle();
+
             }
         });
         //背景色
         cb_background.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    layout.setBackgroundResource(R.color.colorBackground);
-                } else {
-                    layout.setBackground(null);
-                }
+
                 cb_clip_background.setVisibility(isChecked ? View.VISIBLE : View.GONE);
             }
         });

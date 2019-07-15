@@ -25,6 +25,9 @@ package com.gcssloop.widget;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Checkable;
@@ -38,7 +41,7 @@ import com.gcssloop.widget.helper.RCHelper;
  * 作者：GcsSloop
  */
 @SuppressLint("AppCompatCustomView")
-public class RCImageView extends ImageView implements Checkable, RCAttrs {
+public class RCImageView extends ImageView implements  RCAttrs {
 
     RCHelper mRCHelper;
 
@@ -62,24 +65,17 @@ public class RCImageView extends ImageView implements Checkable, RCAttrs {
         mRCHelper.onSizeChanged(this, w, h);
     }
 
-    @Override
-    public void draw(Canvas canvas) {
-        if (mRCHelper.mClipBackground) {
-            canvas.save();
-            canvas.clipPath(mRCHelper.mClipPath);
-            super.draw(canvas);
-            canvas.restore();
-        } else {
-            super.draw(canvas);
-        }
-    }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.saveLayer(mRCHelper.mLayer, null, Canvas.ALL_SAVE_FLAG);
+        mRCHelper.drawBackGround(canvas);
+        canvas.clipPath(mRCHelper.mClipPath);
         super.onDraw(canvas);
-        mRCHelper.onClipDraw(canvas);
+        mRCHelper.drawStroke(canvas);
         canvas.restore();
+
     }
 
     @Override
@@ -150,6 +146,10 @@ public class RCImageView extends ImageView implements Checkable, RCAttrs {
         mRCHelper.mStrokeColor = strokeColor;
         invalidate();
     }
+    @Override
+    public void onViewStatusChanged() {
+        invalidate();
+    }
 
     @Override
     public void invalidate() {
@@ -199,28 +199,5 @@ public class RCImageView extends ImageView implements Checkable, RCAttrs {
         mRCHelper.drawableStateChanged(this);
     }
 
-    @Override
-    public void setChecked(boolean checked) {
-        if (mRCHelper.mChecked != checked) {
-            mRCHelper.mChecked = checked;
-            refreshDrawableState();
-            if (mRCHelper.mOnCheckedChangeListener != null) {
-                mRCHelper.mOnCheckedChangeListener.onCheckedChanged(this, mRCHelper.mChecked);
-            }
-        }
-    }
 
-    @Override
-    public boolean isChecked() {
-        return mRCHelper.mChecked;
-    }
-
-    @Override
-    public void toggle() {
-        setChecked(!mRCHelper.mChecked);
-    }
-
-    public void setOnCheckedChangeListener(RCHelper.OnCheckedChangeListener listener) {
-        mRCHelper.mOnCheckedChangeListener = listener;
-    }
 }

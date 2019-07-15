@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         app:round_corner="30dp"
         app:round_corner_top_left="0dp"
-        app:stroke_color="#E39E83"
+        app:stroke_normal_color="#E39E83"
         app:stroke_width="2dp">
 
         <ImageView
@@ -57,7 +57,7 @@
         android:layout_alignParentTop="true"
         app:round_corner="30dp"
         app:round_corner_top_right="0dp"
-        app:stroke_color="#E39E83"
+        app:stroke_normal_color="#E39E83"
         app:stroke_width="2dp">
 
         <ImageView
@@ -76,7 +76,7 @@
         android:layout_alignParentLeft="true"
         app:round_corner="30dp"
         app:round_corner_bottom_left="0dp"
-        app:stroke_color="#E39E83"
+        app:stroke_normal_color="#E39E83"
         app:stroke_width="2dp">
 
         <ImageView
@@ -95,7 +95,7 @@
         android:layout_alignParentRight="true"
         app:round_corner="30dp"
         app:round_corner_bottom_right="0dp"
-        app:stroke_color="#E39E83"
+        app:stroke_normal_color="#E39E83"
         app:stroke_width="2dp">
 
         <ImageView
@@ -120,7 +120,7 @@
         app:round_corner_bottom_left="0dp"
         app:clip_background="false"
         android:background="#ccc"
-        app:stroke_color="#E39E83"
+        app:stroke_normal_color="#E39E83"
         app:stroke_width="2dp" />
 
     <com.gcssloop.widget.RCRelativeLayout
@@ -133,7 +133,7 @@
         app:round_as_circle="true"
         app:round_corner="30dp"
         app:round_corner_bottom_right="0dp"
-        app:stroke_color="#66000000"
+        app:stroke_normal_color="#66000000"
         app:stroke_width="4dp">
 
         <ImageView

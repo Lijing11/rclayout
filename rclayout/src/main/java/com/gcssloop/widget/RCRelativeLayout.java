@@ -37,7 +37,7 @@ import com.gcssloop.widget.helper.RCHelper;
  * 作用：圆角相对布局
  * 作者：GcsSloop
  */
-public class RCRelativeLayout extends RelativeLayout implements Checkable, RCAttrs {
+public class RCRelativeLayout extends RelativeLayout implements  RCAttrs {
     RCHelper mRCHelper;
 
     public RCRelativeLayout(Context context) {
@@ -60,24 +60,21 @@ public class RCRelativeLayout extends RelativeLayout implements Checkable, RCAtt
         mRCHelper.onSizeChanged(this, w, h);
     }
 
+
     @Override
     protected void dispatchDraw(Canvas canvas) {
         canvas.saveLayer(mRCHelper.mLayer, null, Canvas.ALL_SAVE_FLAG);
         super.dispatchDraw(canvas);
-        mRCHelper.onClipDraw(canvas);
+        mRCHelper.drawBackGround(canvas);
+        mRCHelper.drawStroke(canvas);
         canvas.restore();
+
     }
 
     @Override
     public void draw(Canvas canvas) {
-        if (mRCHelper.mClipBackground) {
-            canvas.save();
-            canvas.clipPath(mRCHelper.mClipPath);
-            super.draw(canvas);
-            canvas.restore();
-        } else {
-            super.draw(canvas);
-        }
+        super.draw(canvas);
+
     }
 
     @Override
@@ -149,6 +146,11 @@ public class RCRelativeLayout extends RelativeLayout implements Checkable, RCAtt
     }
 
     @Override
+    public void onViewStatusChanged() {
+        invalidate();
+    }
+
+    @Override
     public void invalidate() {
         if (null != mRCHelper)
             mRCHelper.refreshRegion(this);
@@ -188,7 +190,6 @@ public class RCRelativeLayout extends RelativeLayout implements Checkable, RCAtt
     }
 
 
-    //--- Selector 支持 ----------------------------------------------------------------------------
 
     @Override
     protected void drawableStateChanged() {
@@ -196,28 +197,5 @@ public class RCRelativeLayout extends RelativeLayout implements Checkable, RCAtt
         mRCHelper.drawableStateChanged(this);
     }
 
-    @Override
-    public void setChecked(boolean checked) {
-        if (mRCHelper.mChecked != checked) {
-            mRCHelper.mChecked = checked;
-            refreshDrawableState();
-            if (mRCHelper.mOnCheckedChangeListener != null) {
-                mRCHelper.mOnCheckedChangeListener.onCheckedChanged(this, mRCHelper.mChecked);
-            }
-        }
-    }
 
-    @Override
-    public boolean isChecked() {
-        return mRCHelper.mChecked;
-    }
-
-    @Override
-    public void toggle() {
-        setChecked(!mRCHelper.mChecked);
-    }
-
-    public void setOnCheckedChangeListener(RCHelper.OnCheckedChangeListener listener) {
-        mRCHelper.mOnCheckedChangeListener = listener;
-    }
 }

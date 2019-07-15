@@ -76,7 +76,7 @@ RCRelativeLayout(Round Corner RelativeLayout)，使用圆角布局包裹需要�
 | round_corner_bottom_right | 右下角圆角半径 | 否      | dp      |
 | round_as_circle           | 是否剪裁为圆形 | 否      | boolean |
 | stroke_width              | 描边半径    | 否      | dp      |
-| stroke_color              | 描边颜色    | 否      | color   |
+| stroke_normal_color              | 描边颜色    | 否      | color   |
 | clip_background           | 剪裁背景    | 否      | boolean |
 
 ### 3. 属性简介
@@ -94,7 +94,7 @@ RCRelativeLayout(Round Corner RelativeLayout)，使用圆角布局包裹需要�
 #### 3.2 描边属性
 
 描边宽度`stroke_width`默认情况下数值为 0，即不存在描边效果。  
-描边高度`stroke_color`默认情况下为白色，允许自定义颜色。
+描边高度`stroke_normal_color`默认情况下为白色，允许自定义颜色。
 
 #### 3.3 背景剪裁
 

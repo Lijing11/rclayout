@@ -40,6 +40,7 @@ public interface RCAttrs {
     void setStrokeWidth(int strokeWidth);
 
     void setStrokeColor(int strokeColor);
+    void onViewStatusChanged();
 
     boolean isClipBackground();
 

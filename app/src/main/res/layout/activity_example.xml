@@ -29,20 +29,28 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <com.gcssloop.widget.RCRelativeLayout
+        <com.gcssloop.widget.RCLinearLayout
             android:id="@+id/rc_layout"
             android:layout_width="@dimen/size_example_image"
             android:layout_height="@dimen/size_example_image"
+            android:clickable="true"
             android:layout_centerHorizontal="true"
-            app:stroke_color="@drawable/selector_stroke_color">
+            app:stroke_width= "10dp"
+            android:gravity="center"
+            android:padding="30dp"
+            app:stroke_normal_color="#01affd"
+            app:stroke_pressed_color="#ffffff"
+            app:stroke_selected_color="#f26161"
+            app:stroke_enabled_color="#fffd80"
+            app:background_normal_color="#fffd80"
+            app:background_pressed_color="#f26161"
+            app:background_selected_color="#01affd"
+            app:background_enabled_color="#ffffff">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/test" />
 
-        </com.gcssloop.widget.RCRelativeLayout>
+
+
+        </com.gcssloop.widget.RCLinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
