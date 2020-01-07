@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/StudioProjects-rclayout.iml" filepath="$PROJECT_DIR$/StudioProjects-rclayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rclayout.iml" filepath="$PROJECT_DIR$/rclayout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rclayout.iml" filepath="$PROJECT_DIR$/rclayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/rclayout/rclayout.iml" filepath="$PROJECT_DIR$/rclayout/rclayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/RCLayout/rclayout-rclayout.iml" filepath="$PROJECT_DIR$/RCLayout/rclayout-rclayout.iml" />
     </modules>
